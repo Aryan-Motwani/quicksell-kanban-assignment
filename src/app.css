@@ -1,0 +1,22 @@
+.display-btn {
+    display: flex;
+    align-items: center;
+    background-color: whitesmoke;
+    /* color: #fff; */
+    padding: 1px 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    border: 0.000001px solid rgba(0, 0, 0, 0.15);
+    margin: 10px;
+    /* transition: background-color 0.3s ease; */
+    
+  }
+  
+  .btn-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 85%;
+  }
