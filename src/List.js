@@ -16,6 +16,8 @@ import { ReactComponent as Completed } from './icons/done.svg';
 import { ReactComponent as Spinner } from './icons/spinner.svg';
 import { ReactComponent as Canceled } from './icons/canceled.svg';
 
+import {ReactComponent as Avatar} from './icons/avatar.svg';
+ 
 
 export default class List extends Component {
     constructor(props){
@@ -26,11 +28,13 @@ export default class List extends Component {
 
   render() {
     let data = this.props.data;
-    let CurrIcon = Contrast;
+    let CurrIcon = Avatar;
 
     console.log(this.props.groupingMode);
 
-    const priorityIcons = {'No Priority' : BarZero,'Low' :  BarOne,'Medium' :  BarTwo,'High' :  BarThree,'Urgent' :  BarFour};
+    const listHeight = data.length * 250 + 'px';
+
+    const priorityIcons = {'No Priority' : ThreeDots,'Low' :  BarOne,'Medium' :  BarTwo,'High' :  BarThree,'Urgent' :  BarFour};
     const statusIcons = {'Todo' : Todo, 'Done' :  Completed, 'Backlog' :  Spinner, 'Canceled' :  Canceled, 'In progress': Contrast};
     if(this.props.groupingMode == "Priority"){
       CurrIcon = priorityIcons[this.props.title];
@@ -43,7 +47,7 @@ export default class List extends Component {
 
     // currIcon = priorityIcons
     return (
-      <div className="board-main">
+      <div className="board-main" style={{ height: listHeight }}>
         <div className="list-nav">
           <div className="list-title">
           <p>

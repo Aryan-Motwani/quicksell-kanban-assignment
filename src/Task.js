@@ -4,6 +4,8 @@ import { ReactComponent as BarOne } from './icons/new/bar-1.svg';
 import { ReactComponent as BarTwo } from './icons/new/bar-2.svg';
 import { ReactComponent as BarThree } from './icons/new/bar-3.svg';
 import { ReactComponent as BarFour } from './icons//new/bar-4.svg';
+import { ReactComponent as ThreeDots } from './icons/three-dots.svg';
+
 import { ReactComponent as Avatar } from './icons/avatar.svg';
 import { ReactComponent as Fr } from './icons/frr.svg';
 
@@ -27,7 +29,7 @@ export default class Task extends Component {
   }
 
   render() {
-    const priorityIcons = [BarZero, BarOne, BarTwo, BarThree, BarFour];
+    const priorityIcons = [ThreeDots, BarOne, BarTwo, BarThree, BarFour];
     const { task } = this.props;
     const PriorityIcon = priorityIcons[task.priority]; // Get the appropriate SVG component
     const { showFullTitle } = this.state;
