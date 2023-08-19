@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { ReactComponent as BarZero } from './icons/new/bar-0.svg';
 import { ReactComponent as BarOne } from './icons/new/bar-1.svg';
 import { ReactComponent as BarTwo } from './icons/new/bar-2.svg';
 import { ReactComponent as BarThree } from './icons/new/bar-3.svg';
@@ -37,11 +36,9 @@ export default class Task extends Component {
 
     return (
       <div className='task-main' 
-        // draggable={}
-        // onDragEnter={}
       >
         <div className='task-sub'>
-          <p className='task-cam'>CAM-5</p>
+          <p className='task-cam'>CAM-{this.props.idx+1}</p>
           <p
             className='task-title'
             onClick={this.toggleFullTitle}

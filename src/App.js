@@ -1,5 +1,4 @@
 import List from "./List";
-import {cards} from './data';
 import {data} from './api-data';
 import { ReactComponent as Controls } from './icons/controls.svg';
 import React, { Component } from 'react'
@@ -63,7 +62,6 @@ export default class App extends Component {
     }
 
     add(newCard){
-      console.log("hi");
       let {items} = this.state; 
       items.tickets.push(newCard);
      this.setState({items, addToggle : false});
@@ -102,7 +100,6 @@ export default class App extends Component {
   }
 
   handleAddToggle(){
-    console.log("toggle");
     if(this.state.addToggle)
       this.setState({addToggle : false});
     else
@@ -112,7 +109,6 @@ export default class App extends Component {
   render() {
 
     if(this.state.DataisLoaded){
-      console.log(this.state);
 
       let property = this.state.groupingMode.toLocaleLowerCase() == "userid" ? "userId" : this.state.groupingMode.toLocaleLowerCase();
       let boards = {};
@@ -126,13 +122,11 @@ export default class App extends Component {
       })
 
       let priorityNames = ["No Priority", "Low", "Medium", "High", "Urgent"];
-      console.log(data.users)
 
       let userNames = {};
       data.users.forEach(i => {
         userNames[i.id] = i.name;
       })
-      console.log(userNames);
 
       if(property == "priority"){
         let newBoards = {};
@@ -149,7 +143,6 @@ export default class App extends Component {
       }
 
 
-      console.log(boards);
       Object.keys(boards).forEach(i => {
         boards[i].sort((a, b) => this.compareProperty(a, b, this.state.orderingMode.toLocaleLowerCase()));
       })
@@ -161,9 +154,6 @@ export default class App extends Component {
       
       return (
         <div className="App">
-          {/* <div className="overlay">
-            <p>Hello World</p>
-          </div> */}
           {this.state.cat &&
           <div className="app-dropdowns">
             <div className="main-drops">

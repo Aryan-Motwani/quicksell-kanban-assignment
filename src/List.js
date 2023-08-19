@@ -4,8 +4,6 @@ import React, { Component } from 'react'
 import { ReactComponent as AddIcon } from './icons/add.svg'
 import { ReactComponent as Contrast } from './icons/contrast.svg'
 import { ReactComponent as ThreeDots } from './icons/three-dots.svg'
-
-import { ReactComponent as BarZero } from './icons/new/bar-0.svg';
 import { ReactComponent as BarOne } from './icons/new/bar-1.svg';
 import { ReactComponent as BarTwo } from './icons/new/bar-2.svg';
 import { ReactComponent as BarThree } from './icons/new/bar-3.svg';
@@ -30,7 +28,6 @@ export default class List extends Component {
     let data = this.props.data;
     let CurrIcon = Avatar;
 
-    console.log(this.props.groupingMode);
 
     const listHeight = data.length * 250 + 'px';
 
@@ -40,8 +37,6 @@ export default class List extends Component {
       CurrIcon = priorityIcons[this.props.title];
     }
     if(this.props.groupingMode == "status"){
-      console.log("hello anish")
-      console.log(this.props.title);
       CurrIcon = statusIcons[this.props.title];
     }
 
@@ -59,8 +54,8 @@ export default class List extends Component {
             <ThreeDots className="three-dots task-bar-icon list-icons"/>
           </div>
         </div>
-        {data.map(i => {
-            return <Task groupingMode={this.props.groupingMode} delete={this.props.delete} task={i}/>
+        {data.map((i,j) => {
+            return <Task idx={j} key={i.title} groupingMode={this.props.groupingMode} delete={this.props.delete} task={i}/>
         })}
       </div>
     )
